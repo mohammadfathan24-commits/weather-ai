@@ -42,4 +42,7 @@ model.fit(X_train, y_train)
 # Simpan model
 joblib.dump(model, "weather_model.pkl")
 
+# Simpan encoder
+joblib.dump(le, "label_encoder.pkl")
+
 print("Model berhasil dibuat!")

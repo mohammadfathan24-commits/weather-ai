@@ -5,6 +5,9 @@ import numpy as np
 # load model
 model = joblib.load("weather_model.pkl")
 
+# load encoder
+encoder = joblib.load("label_encoder.pkl")
+
 st.title("🌦️ AI Prediksi Cuaca")
 
 st.write("Masukkan data cuaca")
@@ -29,4 +32,6 @@ if st.button("Prediksi Cuaca"):
 
     prediction = model.predict(data)
 
-    st.success(f"Hasil Prediksi Cuaca: {prediction[0]}")
+    hasil = encoder.inverse_transform(prediction)
+
+    st.success(f"Hasil Prediksi Cuaca: {hasil[0]}")
