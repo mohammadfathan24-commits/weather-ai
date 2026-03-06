@@ -16,7 +16,16 @@ for column in df.columns:
         df[column] = le.fit_transform(df[column])
 
 # Feature dan target
-X = df.drop("Weather Type", axis=1)
+X = df[[
+"Temperature",
+"Humidity",
+"Wind Speed",
+"Precipitation (%)",
+"Atmospheric Pressure",
+"UV Index",
+"Visibility (km)"
+]]
+
 y = df["Weather Type"]
 
 # Split data
